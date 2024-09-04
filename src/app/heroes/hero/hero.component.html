@@ -1,0 +1,40 @@
+<h1>{{name}}</h1>
+
+<dl>
+    <!--// Interporlación del atributo 'name' //-->
+    <td>Nombre:</td>
+    <dd> {{name}} </dd>
+
+    <!--// Interporlación del atributo 'age' //-->
+    <td>Edad:</td>
+    <dd> {{age}} </dd>
+
+    <td>Método:</td>
+    <dd> {{ getHeroDescription() }} </dd>
+
+    <!--// Interporlación del getter 'capitalizedName' //-->
+    <td>Capitalizado:</td>
+    <dd> {{capitalizedName}} </dd>
+</dl>
+
+<button
+*ngIf="name !== 'Spiderman'" 
+class="btn btn-primary mx-2" 
+(click)="changeHero()">
+    Cambiar Nombre
+</button>
+
+<button
+*ngIf="age !== 20" 
+class="btn btn-primary" 
+(click)="changeAge()">
+    Cambiar Edad
+</button>
+
+<br *ngIf="name === 'Spiderman' || age === 20">
+<button
+*ngIf="name === 'Spiderman' || age === 20"
+class="btn btn-danger my-3" 
+(click)="resetForm()">
+    Restablecer Valores
+</button>

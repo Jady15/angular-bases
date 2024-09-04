@@ -1,0 +1,26 @@
+<h3>Listado de Héroes</h3>
+
+<!--? Declaración de *ngIf; else-->
+<!--* La sentencia 'else' debe estar asociada a un ng-template, que creará un componente HTML en caso que el *ngIf sea false.-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+    <h3>Héroe borrado: <small class="text-danger">{{ deletedHero }}</small></h3>
+</div>
+
+<!--? Construcción de template con REFERENCIA LOCAL (#)-->
+<ng-template #nothingWasDeleted>
+    <h3 *ngIf="!deletedHero">No ha borrado nada.</h3>
+</ng-template>
+
+<button
+*ngIf="heroNames.length > 0" 
+(click)="removeLastHero()"
+class="btn btn-outline-danger">
+    Borrar último héroe
+</button>
+
+
+<ul class="mt-2 list-group">
+    <!--? *ngFor: Permite clonar un elemento html a partir de un ciclo for -->
+    <li *ngFor="let name of heroNames"
+    class="list-group-item">{{ name }}</li>
+</ul>
